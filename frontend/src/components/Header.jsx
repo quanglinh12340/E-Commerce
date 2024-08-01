@@ -1,10 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
-
 import logo from "@/assets/logo.png";
-import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="h-16 shadow-md bg-white">
