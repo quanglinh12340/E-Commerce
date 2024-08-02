@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import loginIcons from "@/assets/signin.gif";
+import imageTobase64 from "@/helpers/imageTobase64";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,6 +25,18 @@ const SignUp = () => {
     });
   };
 
+  const handleUpLoadPic = async (e) => {
+    const file = e.target.files[0];
+
+    const imagePic = await imageTobase64(file);
+    setData((prev) => {
+      return {
+        ...prev,
+        profilePic: imagePic,
+      };
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -33,13 +46,17 @@ const SignUp = () => {
         <div className="bg-white  p-5 w-full max-w-sm mx-auto  ">
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full ">
             <div>
-              <img src={loginIcons} alt="login icons" />
+              <img src={data.profilePic || loginIcons} alt="login icons" />
             </div>
             <label>
               <div className="text-xs bg-opacity-80 bg-slate-200 pt-2 pb-4 text-center absolute bottom-0 w-full cursor-pointer">
                 Upload photo
               </div>
-              <input type="file" className="hidden" />
+              <input
+                type="file"
+                className="hidden"
+                onChange={handleUpLoadPic}
+              />
             </label>
           </div>
           <form className="pt-6 flex flex-col gap-2" onSubmit={handleSubmit}>
@@ -52,6 +69,7 @@ const SignUp = () => {
                   name="name"
                   placeholder="Enter your name"
                   className="w-full h-full outline-none bg-transparent"
+                  required
                   onChange={handleOnChange}
                 />
               </div>
@@ -65,6 +83,7 @@ const SignUp = () => {
                   name="email"
                   placeholder="Enter your email"
                   className="w-full h-full outline-none bg-transparent"
+                  required
                   onChange={handleOnChange}
                 />
               </div>
@@ -78,6 +97,7 @@ const SignUp = () => {
                   name="password"
                   placeholder="Enter your password"
                   className="w-full h-full outline-none bg-transparent"
+                  required
                   onChange={handleOnChange}
                 />
                 <div
@@ -103,6 +123,7 @@ const SignUp = () => {
                   name="confirmPassword"
                   placeholder="Enter your confirm password"
                   className="w-full h-full outline-none bg-transparent"
+                  required
                   onChange={handleOnChange}
                 />
                 <div
