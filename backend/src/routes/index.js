@@ -10,5 +10,6 @@ const RootRouter = Router()
 RootRouter.post('/signup', userSignUpController)
 RootRouter.post('/signin', userSignInController)
 RootRouter.get('/user-details', authToken, userDetailsController)
+RootRouter.get('/user-logout', userLogout)
 
 export { RootRouter }
