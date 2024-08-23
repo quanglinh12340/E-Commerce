@@ -8,10 +8,8 @@ import { RootRouter } from './src/routes/index.js';
 
 dotenv.config()
 
-connectDB()
 
 const app = express()
-const PORT = 8080 || process.env.PORT
 
 app.use(cors({
     origin: process.env.FRONTEND_URL,
@@ -22,7 +20,12 @@ app.use(cookieParser())
 
 app.use('/api', RootRouter)
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+const PORT = 8080 || process.env.PORT
 
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log('Connected to DB');
+        console.log(`Server is running at http://localhost:${PORT}`);
+    })
 })
+
