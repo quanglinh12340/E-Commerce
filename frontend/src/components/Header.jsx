@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -11,6 +11,8 @@ import { toast } from "react-toastify";
 import { setUserDetails } from "@/store/userSlice";
 
 const Header = () => {
+  const [menuDisplay, setMenuDisplay] = useState(false);
+
   const user = useSelector((state) => state?.user?.user);
   const dispatch = useDispatch();
 
@@ -50,15 +52,33 @@ const Header = () => {
           </div>
         </div>
         <div className="flex items-center gap-7">
-          <div className="text-3xl cursor-pointer">
-            {user?.profilePic ? (
-              <img
-                src={user?.profilePic}
-                className="w-11 h-11 rounded-full"
-                alt="User Profile"
-              />
-            ) : (
-              <FaRegCircleUser />
+          <div className="relative flex justify-center">
+            <div
+              className="text-3xl cursor-pointer relative flex justify-center"
+              onClick={() => setMenuDisplay((prev) => !prev)}
+            >
+              {user?.profilePic ? (
+                <img
+                  src={user?.profilePic}
+                  className="w-11 h-11 rounded-full"
+                  alt="User Profile"
+                />
+              ) : (
+                <FaRegCircleUser />
+              )}
+            </div>
+            {menuDisplay && (
+              <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded ">
+                <nav>
+                  <Link
+                    to={"admin-panel"}
+                    className="whitespace-nowrap hover:bg-slate-100 p-2"
+                    onClick={() => setMenuDisplay((prev) => !prev)}
+                  >
+                    Admin Panel
+                  </Link>
+                </nav>
+              </div>
             )}
           </div>
           <div className="text-2xl relative">
