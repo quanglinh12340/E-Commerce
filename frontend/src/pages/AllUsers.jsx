@@ -6,6 +6,13 @@ import { MdModeEdit } from "react-icons/md";
 import ChangeUserRole from "@/components/ChangeUserRole";
 const AllUsers = () => {
   const [allUser, setAllUser] = useState([]);
+  const [openUpdateRole, setOpenUpdateRole] = useState(false);
+  const [updateUserDetails, setUpdateUserDetails] = useState({
+    email: "",
+    name: "",
+    role: "",
+    _id: "",
+  });
 
   const fetchAllUser = async () => {
     const fetchData = await fetch(SummaryApi.all_user.url, {
@@ -14,7 +21,6 @@ const AllUsers = () => {
     });
 
     const dataResponse = await fetchData.json();
-    console.log("🚀 ~ fetchAllUser ~ dataResponse:", dataResponse);
 
     if (dataResponse.success) {
       setAllUser(dataResponse.data);
@@ -31,7 +37,7 @@ const AllUsers = () => {
   return (
     <div className="bg-white pb-4">
       <table className="w-full userTable">
-        <thead>
+        <thead className="bg-black text-white">
           <tr>
             <th>Sr.</th>
             <th>Name</th>
@@ -51,7 +57,13 @@ const AllUsers = () => {
                 <td>{user?.role}</td>
                 <td>{moment(user?.updatedAt).format("lll")}</td>
                 <td>
-                  <button className="bg-green-100 p-2 rounded-full cursor-pointer hover:bg-green-500 hover:text-white">
+                  <button
+                    className="bg-green-100 p-2 rounded-full cursor-pointer hover:bg-green-500 hover:text-white"
+                    onClick={() => {
+                      setUpdateUserDetails(user);
+                      setOpenUpdateRole(true);
+                    }}
+                  >
                     <MdModeEdit />
                   </button>
                 </td>
@@ -60,7 +72,16 @@ const AllUsers = () => {
           })}
         </tbody>
       </table>
-      <ChangeUserRole />
+      {openUpdateRole && (
+        <ChangeUserRole
+          name={updateUserDetails.name}
+          email={updateUserDetails.email}
+          role={updateUserDetails.role}
+          userId={updateUserDetails._id}
+          onClose={() => setOpenUpdateRole(false)}
+          callFunc={fetchAllUser}
+        />
+      )}{" "}
     </div>
   );
 };
