@@ -1,10 +1,18 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useSelector } from "react-redux";
+import ROLE from "@/common/role";
 
 const AdminPanel = () => {
   const user = useSelector((state) => state?.user?.user);
+  console.log("🚀 ~ AdminPanel ~ user:", user);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user?.role !== ROLE.ADMIN) navigate("/");
+  }, [user]);
 
   return (
     <div className="min-h-[calc(100vh-120px)] flex">
