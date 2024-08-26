@@ -6,7 +6,6 @@ import ROLE from "@/common/role";
 
 const AdminPanel = () => {
   const user = useSelector((state) => state?.user?.user);
-  console.log("🚀 ~ AdminPanel ~ user:", user);
 
   const navigate = useNavigate();
 
