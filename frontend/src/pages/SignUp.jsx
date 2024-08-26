@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import loginIcons from "@/assets/signin.gif";
-import imageTobase64 from "@/helpers/imageTobase64";
+import imageTobase64 from "@/helpers/imageTobase64.jsx";
 import SummaryApi from "@/common";
 
 const SignUp = () => {
