@@ -1,0 +1,67 @@
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: #cbd5e1;
+}
+footer .col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+footer .copyright {
+  width: 100%;
+  text-align: center;
+}
+footer .logo {
+  width: 130px;
+  height: 80px;
+}
+footer .logo img {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+footer h4 {
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+footer p {
+  margin: 0 0 8px 0;
+}
+footer a {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 10px;
+}
+footer .follow {
+  margin-top: 20px;
+}
+footer .follow .icon {
+  display: flex;
+  gap: 10px;
+}
+footer .follow span {
+  color: #465b52;
+  padding-right: 4px;
+  cursor: pointer;
+}
+footer .follow span:hover,
+footer a:hover {
+  color: #088178;
+}
+footer .install .row {
+  display: flex;
+  gap: 10px;
+}
+footer .install .row img {
+  border: 1px solid #088178;
+  border-radius: 6px;
+}
+footer .install img {
+  margin: 10px 0 15px 0;
+}
