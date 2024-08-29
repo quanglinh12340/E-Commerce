@@ -6,8 +6,13 @@ import {
   FaPinterestP,
   FaYoutube,
 } from "react-icons/fa";
+
 import "@/assets/css/Footer.css";
 import logo from "@/assets/image/logo.png";
+import app from "@/assets/image/footer/app.jpg";
+import pay from "@/assets/image/footer/pay.png";
+import play from "@/assets/image/footer/play.jpg";
+
 const Footer = () => {
   return (
     <footer className="section-p1">
@@ -66,14 +71,16 @@ const Footer = () => {
         <h4>Install App</h4>
         <p>From App Store or Google Play</p>
         <div className="row">
-          <img src="./img/pay/app.jpg" alt="" />
-          <img src="./img/pay/play.jpg" alt="" />
+          <img src={app} alt="" />
+          <img src={play} alt="" />
         </div>
         <p>Secured Payment Gateways</p>
-        <img src="./img/pay/pay.png" alt="" />
+        <img src={pay} alt="" />
       </div>
       <div className="copyright">
-        <p>© 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
+        <p>
+          © 2024, Web Ecommerce - Explore the world of online shopping with us
+        </p>
       </div>
     </footer>
   );
