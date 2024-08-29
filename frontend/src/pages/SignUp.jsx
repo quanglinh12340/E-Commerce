@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-import loginIcons from "@/assets/signin.gif";
+import loginIcons from "@/assets/image/signin.gif";
 import imageTobase64 from "@/helpers/imageTobase64.jsx";
 import SummaryApi from "@/common";
 

@@ -5,7 +5,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
-import logo from "@/assets/logo.png";
+import logo from "@/assets/image/logo.png";
 import SummaryApi from "@/common";
 import { toast } from "react-toastify";
 import { setUserDetails } from "@/store/userSlice";
@@ -14,7 +14,7 @@ import ROLE from "@/common/role";
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
 
-  const user = useSelector((state) => state?.user?.user);
+  const user = useSelector((state) => state?.user?.user); //Lấy thông tin người dùng từ Redux Store
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
