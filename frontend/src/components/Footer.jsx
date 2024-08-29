@@ -8,10 +8,10 @@ import {
 } from "react-icons/fa";
 
 import "@/assets/css/Footer.css";
-import logo from "@/assets/image/logo.png";
-import app from "@/assets/image/footer/app.jpg";
-import pay from "@/assets/image/footer/pay.png";
-import play from "@/assets/image/footer/play.jpg";
+import logo from "@/assets/logo.png";
+import app from "@/assets/footer/app.jpg";
+import pay from "@/assets/footer/pay.png";
+import play from "@/assets/footer/play.jpg";
 
 const Footer = () => {
   return (

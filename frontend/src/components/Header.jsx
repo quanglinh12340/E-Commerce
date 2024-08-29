@@ -5,7 +5,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
-import logo from "@/assets/image/logo.png";
+import logo from "@/assets/logo.png";
 import SummaryApi from "@/common";
 import { toast } from "react-toastify";
 import { setUserDetails } from "@/store/userSlice";
