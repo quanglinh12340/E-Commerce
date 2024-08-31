@@ -10,6 +10,7 @@ import uploadProductController from "../controllers/products/uploadProduct.contr
 import getProductController from "../controllers/products/getProduct.controller.js";
 import updateProductController from "../controllers/products/updateProduct.controller.js";
 import getCategoryProductController from "../controllers/products/getCategoryProductOne.controller.js";
+import getCategoryWiseProductController from "../controllers/products/getCategoryWiseProduct.controller.js";
 
 const RootRouter = Router()
 
@@ -27,4 +28,5 @@ RootRouter.post('/upload-product', authToken, uploadProductController)
 RootRouter.get('/get-product', getProductController)
 RootRouter.post('/update-product', authToken, updateProductController)
 RootRouter.get('/get-categoryProduct', getCategoryProductController)
+RootRouter.post('/category-product', getCategoryWiseProductController)
 export { RootRouter }
