@@ -9,7 +9,7 @@ import updateUserController from "../controllers/users/updateUser.controller.js"
 import uploadProductController from "../controllers/products/uploadProduct.controller.js";
 import getProductController from "../controllers/products/getProduct.controller.js";
 import updateProductController from "../controllers/products/updateProduct.controller.js";
-import getCategoryProductController from "../controllers/products/getCategoryProduct.controller.js";
+import getCategoryProductController from "../controllers/products/getCategoryProductOne.controller.js";
 
 const RootRouter = Router()
 
