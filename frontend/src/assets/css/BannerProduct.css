@@ -17,6 +17,7 @@
   height: 500px;
   transition: transform 0.5s;
   background-size: cover;
+  border-radius: 50px;
 }
 .gallery div span {
   width: 120px;
