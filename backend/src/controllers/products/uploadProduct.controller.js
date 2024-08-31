@@ -1,5 +1,5 @@
-import uploadProductPermission from "../helpers/permission.js"
-import ProductModel from "../models/product.model.js"
+import uploadProductPermission from "../../helpers/permission.js"
+import ProductModel from "../../models/product.model.js"
 
 async function uploadProductController(req, res) {
     try {
