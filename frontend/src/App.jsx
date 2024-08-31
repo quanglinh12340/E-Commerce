@@ -37,7 +37,7 @@ const App = () => {
       >
         <ToastContainer />
         <Header />
-        <main className="min-h-[calc(100vh-120px)]">
+        <main className="min-h-[calc(100vh-120px)] mx-16 pt-16">
           <Outlet />
         </main>{" "}
         <Footer />
