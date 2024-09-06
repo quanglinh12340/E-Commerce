@@ -1,17 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { CiStar } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
 
 import SummaryApi from "@/common";
 import displayINRCurrency from "@/helpers/displayCurrency";
-import renderStars from "@/helpers/renderStart";
 import HorizontalCardProduct from "@/components/HorizontalCardProduct";
+import renderStars from "@/helpers/renderStars";
 import CategoryWiseProductDisplay from "@/components/CategoryWiseProductDisplay";
+// import CategoryWiseProductDisplay from "@/components/CategoryWiseProductDisplay";
 const ProductDetails = () => {
-  const location = useLocation();
-  const stars = location.state?.stars || renderStars();
-
   const [data, setData] = useState({
     productName: "",
     brandName: "",
@@ -46,7 +42,6 @@ const ProductDetails = () => {
     setData(dataResponse?.data);
     setActiveImage(dataResponse?.data?.productImage[0]);
   };
-  console.log("🚀 ~ ProductDetails ~ data:", data);
 
   const handleMouseEnterProduct = (imageUrl) => {
     setActiveImage(imageUrl);
@@ -135,16 +130,7 @@ const ProductDetails = () => {
           <p className="capitalize text-slate-400">{data?.category}</p>
 
           <div className="text-red-600 flex items-center gap-1">
-            {[...Array(stars.faStarsCount)].map((_, index) => (
-              <i key={`fa-${index}`}>
-                <FaStar />
-              </i>
-            ))}
-            {[...Array(stars.ciStarsCount)].map((_, index) => (
-              <i key={`ci-${index}`}>
-                <CiStar />
-              </i>
-            ))}
+            {renderStars()}
           </div>
 
           <div className="flex items-center gap-2 text-2xl lg:text-3xl font-medium my-1">
