@@ -3,10 +3,8 @@ import { useParams, useLocation } from "react-router-dom";
 
 import SummaryApi from "@/common";
 import displayINRCurrency from "@/helpers/displayCurrency";
-import HorizontalCardProduct from "@/components/HorizontalCardProduct";
 import renderStars from "@/helpers/renderStars";
 import CategoryWiseProductDisplay from "@/components/CategoryWiseProductDisplay";
-// import CategoryWiseProductDisplay from "@/components/CategoryWiseProductDisplay";
 const ProductDetails = () => {
   const [data, setData] = useState({
     productName: "",
