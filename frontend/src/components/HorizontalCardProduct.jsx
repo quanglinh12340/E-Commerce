@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -9,8 +8,16 @@ import displayINRCurrency from "@/helpers/displayCurrency";
 import "@/assets/css/HorizontalCardProduct.css";
 import addToCart from "@/helpers/addToCart";
 import renderStars from "@/helpers/renderStars";
+import Context from "@/context";
 const HorizontalCardProduct = ({ category, heading }) => {
   const [data, setData] = useState([]);
+
+  const { fetchUserAddToCart } = useContext(Context);
+
+  const handleAddToCart = async (e, id) => {
+    await addToCart(e, id);
+    fetchUserAddToCart();
+  };
 
   const fetchData = async () => {
     const categoryProduct = await fetchCategoryWiseProduct(category);
@@ -37,11 +44,11 @@ const HorizontalCardProduct = ({ category, heading }) => {
                     <div className="star">{renderStars()}</div>
                     <h4>{displayINRCurrency(product?.price)}</h4>
                   </div>
-                  <button className="cart">
-                    <FaCartPlus
-                      className="cart-plus"
-                      onClick={(e) => addToCart(e, product?._id)}
-                    />
+                  <button
+                    className="cart"
+                    onClick={(e) => handleAddToCart(e, product?._id)}
+                  >
+                    <FaCartPlus className="cart-plus" />
                   </button>
                 </div>
               </div>
