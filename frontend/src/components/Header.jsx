@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -10,12 +10,16 @@ import SummaryApi from "@/common";
 import { toast } from "react-toastify";
 import { setUserDetails } from "@/store/userSlice";
 import ROLE from "@/common/role";
+import Context from "@/context";
 
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
 
   const user = useSelector((state) => state?.user?.user); //Lấy thông tin người dùng từ Redux Store
   const dispatch = useDispatch();
+
+  const context = useContext(Context);
+  console.log("🚀 ~ Header ~ context:", context);
 
   const handleLogout = async () => {
     const fetchData = await fetch(SummaryApi.logout_user.url, {
@@ -86,14 +90,16 @@ const Header = () => {
               </div>
             )}
           </div>
-          <div className="text-2xl relative">
-            <span>
-              <FaShoppingCart />
-            </span>
-            <div className="bg-red-600 text-white w-5 h-5 p-1  rounded-full flex items-center justify-center absolute -top-2 -right-3">
-              <p className="text-sm">0</p>
+          {user?._id && (
+            <div className="text-2xl relative">
+              <span>
+                <FaShoppingCart />
+              </span>
+              <div className="bg-red-600 text-white w-5 h-5 p-1  rounded-full flex items-center justify-center absolute -top-2 -right-3">
+                <p className="text-sm">{context?.cartProductCount}</p>
+              </div>
             </div>
-          </div>
+          )}
           <div>
             {user?._id ? (
               <button
