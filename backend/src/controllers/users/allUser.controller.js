@@ -10,7 +10,7 @@ async function allUserController(req, res) {
             success: true,
             error: false
         })
-    } catch (error) {
+    } catch (err) {
         res.status(400).json({
             message: err.message || err,
             error: true,
