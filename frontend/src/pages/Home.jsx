@@ -3,12 +3,15 @@ import BannerProduct from "@/components/BannerProduct";
 import CategoryList from "@/components/CategoryList";
 import HorizontalCardProduct from "@/components/HorizontalCardProduct";
 import NewsLetter from "@/components/NewsLetter";
+import Feature from "@/components/Feature";
 
 const Home = () => {
   return (
     <div>
       <CategoryList />
       <BannerProduct />
+      <Feature />
+
       <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
       <HorizontalCardProduct
         category={"earphones"}
