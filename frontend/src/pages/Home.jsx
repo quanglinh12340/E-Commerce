@@ -2,6 +2,7 @@ import React from "react";
 import BannerProduct from "@/components/BannerProduct";
 import CategoryList from "@/components/CategoryList";
 import HorizontalCardProduct from "@/components/HorizontalCardProduct";
+import NewsLetter from "@/components/NewsLetter";
 
 const Home = () => {
   return (
@@ -33,6 +34,7 @@ const Home = () => {
         category={"earphones"}
         heading={"Popular's Watches"}
       />
+      <NewsLetter />
     </div>
   );
 };
