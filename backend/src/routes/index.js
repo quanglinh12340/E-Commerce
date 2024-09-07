@@ -10,6 +10,8 @@ import allUserController from "../controllers/users/allUser.controller.js";
 import updateUserController from "../controllers/users/updateUser.controller.js";
 import addToCartController from "../controllers/users/addToCart.controller.js";
 import countAddToCartProductController from "../controllers/users/countAddToCartProduct.controller.js";
+import addToCartViewProductController from "../controllers/users/addToCartViewProduct.controller.js";
+import updateAddToCartProductController from "../controllers/users/updateAddToCartProduct.controller.js";
 
 import uploadProductController from "../controllers/products/uploadProduct.controller.js";
 import getProductController from "../controllers/products/getProduct.controller.js";
@@ -17,6 +19,7 @@ import updateProductController from "../controllers/products/updateProduct.contr
 import getCategoryProductController from "../controllers/products/getCategoryProductOne.controller.js";
 import getCategoryWiseProductController from "../controllers/products/getCategoryWiseProduct.controller.js";
 import getProductDetailsController from "../controllers/products/getProductDetails.controller.js";
+import deleteAddToCartProductController from "../controllers/users/deleteAddToCartProduct.controller.js";
 
 const RootRouter = Router()
 
@@ -41,5 +44,8 @@ RootRouter.post('/product-details', getProductDetailsController)
 //user add to cart
 RootRouter.post('/addtocart', authToken, addToCartController)
 RootRouter.get('/countAddToCartProduct', authToken, countAddToCartProductController)
+RootRouter.get('/view-cart-product', authToken, addToCartViewProductController)
+RootRouter.post('/update-cart-product', authToken, updateAddToCartProductController)
+RootRouter.post('/delete-cart-product', authToken, deleteAddToCartProductController)
 
 export { RootRouter }

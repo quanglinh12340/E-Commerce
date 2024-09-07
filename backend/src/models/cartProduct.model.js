@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 
 const addToCartSchema = new mongoose.Schema({
-    productId: String,
+    productId: {
+        ref: "products",
+        type: String
+    },
     quantity: Number,
     userId: String,
 }, {
