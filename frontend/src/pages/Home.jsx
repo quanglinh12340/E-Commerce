@@ -5,6 +5,7 @@ import HorizontalCardProduct from "@/components/HorizontalCardProduct";
 import NewsLetter from "@/components/NewsLetter";
 import Feature from "@/components/Feature";
 import CategorySale from "@/components/CategorySale";
+import BannerSale from "@/components/BannerSale";
 
 const Home = () => {
   return (
@@ -38,6 +39,7 @@ const Home = () => {
         category={"earphones"}
         heading={"Popular's Watches"}
       />
+      <BannerSale />
       <NewsLetter />
     </div>
   );
