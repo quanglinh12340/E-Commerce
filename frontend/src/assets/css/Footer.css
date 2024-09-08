@@ -52,7 +52,7 @@ footer .follow span {
 }
 footer .follow span:hover,
 footer a:hover {
-  color: #088178;
+  color: rgb(219 68 68);
 }
 footer .install .row {
   display: flex;

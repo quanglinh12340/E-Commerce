@@ -42,7 +42,7 @@ const CategorySale = () => {
   }, []);
 
   return (
-    <div className="categorySale-container ">
+    <div className="categorySale-container mb-10">
       <div className="categorySale-content">
         <h3>Categories</h3>
         <h1>Enhance Your Music Experience</h1>
