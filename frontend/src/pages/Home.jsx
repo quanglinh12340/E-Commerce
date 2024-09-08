@@ -16,25 +16,19 @@ const Home = () => {
       <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
       <HorizontalCardProduct
         category={"earphones"}
-        heading={"Popular's Watches"}
+        heading={"Popular's Earphones"}
       />
-      <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
-      <HorizontalCardProduct
-        category={"earphones"}
-        heading={"Popular's Watches"}
-      />
-      <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
-      <HorizontalCardProduct
-        category={"earphones"}
-        heading={"Popular's Watches"}
-      />
+      <HorizontalCardProduct category={"Mouse"} heading={"Top's Mouse"} />
+
       <CategorySale />
-      <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
       <HorizontalCardProduct
-        category={"earphones"}
-        heading={"Popular's Watches"}
+        category={"printers"}
+        heading={"Popular's Printers"}
       />
-      <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
+      <HorizontalCardProduct
+        category={"processor"}
+        heading={"Top's Processor"}
+      />
       <HorizontalCardProduct
         category={"earphones"}
         heading={"Popular's Watches"}
