@@ -30,7 +30,20 @@ const Home = () => {
         heading={"Top's Processor"}
       />
       <HorizontalCardProduct
-        category={"earphones"}
+        category={"refrigerator"}
+        heading={"Popular's Refrigerator"}
+      />
+      <HorizontalCardProduct category={"speakers"} heading={"Top's Speakers"} />
+      <HorizontalCardProduct
+        category={"trimmers"}
+        heading={"Popular's Trimmers"}
+      />
+      <HorizontalCardProduct
+        category={"televisions"}
+        heading={"Top's Televisions"}
+      />
+      <HorizontalCardProduct
+        category={"watches"}
         heading={"Popular's Watches"}
       />
       <BannerSale />
