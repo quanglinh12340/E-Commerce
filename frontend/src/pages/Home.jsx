@@ -4,6 +4,7 @@ import CategoryList from "@/components/CategoryList";
 import HorizontalCardProduct from "@/components/HorizontalCardProduct";
 import NewsLetter from "@/components/NewsLetter";
 import Feature from "@/components/Feature";
+import CategorySale from "@/components/CategorySale";
 
 const Home = () => {
   return (
@@ -11,7 +12,6 @@ const Home = () => {
       <CategoryList />
       <BannerProduct />
       <Feature />
-
       <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
       <HorizontalCardProduct
         category={"earphones"}
@@ -27,6 +27,7 @@ const Home = () => {
         category={"earphones"}
         heading={"Popular's Watches"}
       />
+      <CategorySale />
       <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"} />
       <HorizontalCardProduct
         category={"earphones"}

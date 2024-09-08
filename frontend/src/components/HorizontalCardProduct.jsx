@@ -56,7 +56,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
           );
         })}
       </div>
-      <div className="w-full text-center mt-8">
+      <div className="w-full text-center my-10">
         <button className="bg-[#db4444] text-white py-5 px-12 hover:bg-[#ac1515]">
           View All Product
         </button>
