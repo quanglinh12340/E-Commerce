@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import React, { useEffect, useState, useCallback, useContext } from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 import SummaryApi from "@/common";
 import displayINRCurrency from "@/helpers/displayCurrency";
 import renderStars from "@/helpers/renderStars";
 import CategoryWiseProductDisplay from "@/components/CategoryWiseProductDisplay";
+import addToCart from "@/helpers/addToCart";
+import Context from "@/context";
 const ProductDetails = () => {
   const [data, setData] = useState({
     productName: "",
@@ -16,12 +18,15 @@ const ProductDetails = () => {
     sellingPrice: "",
   });
   const [activeImage, setActiveImage] = useState("");
-
   const [zoomImageCoordinate, setZoomImageCoordinate] = useState({
     x: 0,
     y: 0,
   });
   const [zoomImage, setZoomImage] = useState(false);
+
+  const { fetchUserAddToCart } = useContext(Context);
+
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -65,6 +70,18 @@ const ProductDetails = () => {
   const handleLeaveImageZoom = () => {
     setZoomImage(false);
   };
+
+  const handleAddToCart = async (e, id) => {
+    await addToCart(e, id);
+    fetchUserAddToCart();
+  };
+
+  const handleBuyProduct = async (e, id) => {
+    await addToCart(e, id);
+    fetchUserAddToCart();
+    navigate("/cart");
+  };
+
   useEffect(() => {
     fetchProductDetails();
   }, [id]);
@@ -143,13 +160,13 @@ const ProductDetails = () => {
           <div className="flex items-center gap-3 my-2">
             <button
               className="border-2 border-red-600 rounded px-3 py-1 min-w-[120px] text-red-600 font-medium hover:bg-red-600 hover:text-white"
-              // onClick={(e) => handleBuyProduct(e, data?._id)}
+              onClick={(e) => handleBuyProduct(e, data?._id)}
             >
               Buy
             </button>
             <button
               className="border-2 border-red-600 rounded px-3 py-1 min-w-[120px] font-medium text-white bg-red-600 hover:text-red-600 hover:bg-white"
-              // onClick={(e) => handleAddToCart(e, data?._id)}
+              onClick={(e) => handleAddToCart(e, data?._id)}
             >
               Add To Cart
             </button>
