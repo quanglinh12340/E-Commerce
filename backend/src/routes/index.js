@@ -20,6 +20,7 @@ import getCategoryProductController from "../controllers/products/getCategoryPro
 import getCategoryWiseProductController from "../controllers/products/getCategoryWiseProduct.controller.js";
 import getProductDetailsController from "../controllers/products/getProductDetails.controller.js";
 import deleteAddToCartProductController from "../controllers/users/deleteAddToCartProduct.controller.js";
+import searchProductController from "../controllers/products/searchProduct.controller.js";
 
 const RootRouter = Router()
 
@@ -40,6 +41,7 @@ RootRouter.post('/update-product', authToken, updateProductController)
 RootRouter.get('/get-categoryProduct', getCategoryProductController)
 RootRouter.post('/category-product', getCategoryWiseProductController)
 RootRouter.post('/product-details', getProductDetailsController)
+RootRouter.get('/search', searchProductController)
 
 //user add to cart
 RootRouter.post('/addtocart', authToken, addToCartController)
