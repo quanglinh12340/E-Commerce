@@ -73,6 +73,10 @@ const SummaryApi = {
         url: `${backendDomain}/api/search`,
         method: "GET"
     },
+    filter_product: {
+        url: `${backendDomain}/api/filter-product`,
+        method: "POST"
+    },
 }
 
 export default SummaryApi
