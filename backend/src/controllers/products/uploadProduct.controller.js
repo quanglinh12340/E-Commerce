@@ -20,7 +20,7 @@ async function uploadProductController(req, res) {
         })
     } catch (error) {
         res.status(400).json({
-            message: err.message || err,
+            message: error.message || error,
             error: true,
             success: false
         })
