@@ -52,14 +52,21 @@ const HorizontalCardProduct = ({ category, heading }) => {
                   </button>
                 </div>
               </div>
+              {index === 1 && (
+                <div className=" max-w-[1400px]">
+                  <div className=" text-end my-16 w-[115%]">
+                    <Link
+                      to={"/product-category?category=" + product?.category}
+                      className="bg-[#db4444] text-white py-5 px-12 hover:bg-[#ac1515]"
+                    >
+                      View All Product
+                    </Link>
+                  </div>
+                </div>
+              )}
             </Link>
           );
         })}
-      </div>
-      <div className="w-full text-center my-10">
-        <button className="bg-[#db4444] text-white py-5 px-12 hover:bg-[#ac1515]">
-          View All Product
-        </button>
       </div>
     </>
   );
