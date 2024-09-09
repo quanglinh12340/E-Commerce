@@ -34,7 +34,12 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,320px))] justify-between md:gap-6 overflow-x-scroll scrollbar-none transition-all ">
         {data.map((product, index) => {
           return (
-            <Link to={"/product/" + product?._id} key={index} id="product1">
+            <Link
+              to={"/product/" + product?._id}
+              key={index}
+              id="product1"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <div className="pro-container">
                 <div className="pro">
                   <img src={product.productImage[0]} alt="" />

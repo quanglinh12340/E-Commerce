@@ -67,7 +67,7 @@ const ProductDetails = () => {
   };
   useEffect(() => {
     fetchProductDetails();
-  }, []);
+  }, [id]);
 
   return (
     <div className="container mx-auto p-4">
