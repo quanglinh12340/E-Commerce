@@ -23,7 +23,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   const searchInput = useLocation();
-  const [search, setSearch] = useState(searchInput?.search?.split("=")[1]);
+  const URLsearch = new URLSearchParams(searchInput?.search);
+  const searchQuery = URLsearch.getAll("q");
+  const [search, setSearch] = useState(searchQuery);
 
   const handleLogout = async () => {
     const fetchData = await fetch(SummaryApi.logout_user.url, {
