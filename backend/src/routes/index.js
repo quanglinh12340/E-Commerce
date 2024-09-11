@@ -23,6 +23,8 @@ import deleteAddToCartProductController from "../controllers/users/deleteAddToCa
 import searchProductController from "../controllers/products/searchProduct.controller.js";
 import filterProductController from "../controllers/products/filterProduct.controller.js";
 
+import paymentController from "../controllers/order/payment.controller.js";
+
 const RootRouter = Router()
 
 //user
@@ -51,5 +53,8 @@ RootRouter.get('/countAddToCartProduct', authToken, countAddToCartProductControl
 RootRouter.get('/view-cart-product', authToken, addToCartViewProductController)
 RootRouter.post('/update-cart-product', authToken, updateAddToCartProductController)
 RootRouter.post('/delete-cart-product', authToken, deleteAddToCartProductController)
+
+// payment and order
+RootRouter.post('/checkout', authToken, paymentController)
 
 export { RootRouter }
