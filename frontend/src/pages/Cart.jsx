@@ -1,12 +1,13 @@
-import SummaryApi from "@/common";
-import Context from "@/context";
-import displayINRCurrency from "@/helpers/displayCurrency";
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsCartXFill } from "react-icons/bs";
 import { CiCircleRemove } from "react-icons/ci";
-import { MdDelete } from "react-icons/md";
+import { loadStripe } from "@stripe/stripe-js";
 import { Link } from "react-router-dom";
+
 import "@/assets/css/Cart.css";
+import displayINRCurrency from "@/helpers/displayCurrency";
+import Context from "@/context";
+import SummaryApi from "@/common";
 
 const Cart = () => {
   const [data, setData] = useState([]);
@@ -89,6 +90,28 @@ const Cart = () => {
       fetchData();
       context.fetchUserAddToCart();
     }
+  };
+
+  const handlePayment = async () => {
+    const stripePromise = await loadStripe(
+      import.meta.env.VITE_STRIPE_PUBLIC_KEY
+    );
+    const fetchResponse = await fetch(SummaryApi.payment.url, {
+      method: SummaryApi.payment.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        cartItems: data,
+      }),
+    });
+
+    const dataResponse = await fetchResponse.json();
+    if (dataResponse?.id) {
+      stripePromise.redirectToCheckout({ sessionId: dataResponse.id });
+    }
+    console.log("🚀 ~ handlePayment ~ dataResponse:", dataResponse);
   };
 
   const totalQuantity = data.reduce(
@@ -198,7 +221,10 @@ const Cart = () => {
                   </div>
                   <button
                     type="button"
-                    className="w-full text-white bg-[#db4444] hover:bg-[#ac1515] focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2   focus:outline-none "
+                    className="w-full text-white bg-[#db4444] hover:bg-[#ac1515]  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2   focus:outline-none "
+                    onClick={handlePayment}
+                    // Thẻ Visa: 4242 4242 4242 4242
+                    // Thẻ Mastercard: 5555 5555 5555 4444
                   >
                     PROCEED TO CHECKOUT
                   </button>

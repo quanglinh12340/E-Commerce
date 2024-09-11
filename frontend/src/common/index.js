@@ -77,6 +77,10 @@ const SummaryApi = {
         url: `${backendDomain}/api/filter-product`,
         method: "POST"
     },
+    payment: {
+        url: `${backendDomain}/api/checkout`,
+        method: "POST"
+    },
 }
 
 export default SummaryApi
