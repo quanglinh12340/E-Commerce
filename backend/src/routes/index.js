@@ -24,8 +24,11 @@ import searchProductController from "../controllers/products/searchProduct.contr
 import filterProductController from "../controllers/products/filterProduct.controller.js";
 
 import paymentController from "../controllers/order/payment.controller.js";
+import webhook from "../controllers/order/webhook.js";
+import orderController from "../controllers/order/order.controller.js";
 
 const RootRouter = Router()
+
 
 //user
 RootRouter.post('/signup', userSignUpController)
@@ -56,5 +59,7 @@ RootRouter.post('/delete-cart-product', authToken, deleteAddToCartProductControl
 
 // payment and order
 RootRouter.post('/checkout', authToken, paymentController)
+RootRouter.post('/webhook', webhook)
+RootRouter.get('/order-list', authToken, orderController)
 
 export { RootRouter }
