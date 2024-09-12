@@ -34,10 +34,11 @@ const AllOrder = () => {
           {data.map((item, index) => {
             return (
               <div key={index}>
-                <p className="font-medium text-lg">
+                <p className="font-medium text-lg mt-3">
                   {moment(item.createdAt).format("lll")}
                 </p>
-                <div className="border rounded">
+                <p className="font-normal text-lg">Account: {item.email}</p>
+                <div className="border-2 rounded">
                   <div className="flex flex-col lg:flex-row justify-between">
                     <div className="gird gap-1">
                       {item?.productDetails.map((product, index) => {
