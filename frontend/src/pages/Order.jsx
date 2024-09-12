@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import SummaryApi from "@/common";
 import displayINRCurrency from "@/helpers/displayCurrency";
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { RiShoppingBag4Line } from "react-icons/ri";
 
 const Order = () => {
   const [data, setData] = useState([]);
@@ -24,7 +25,12 @@ const Order = () => {
 
   return (
     <div className="p-4 w-full">
-      {!data[0] && <p>No order</p>}
+      {!data[0] && (
+        <div className="flex flex-col items-center">
+          <RiShoppingBag4Line className="text-red-400 text-[4.75rem] my-5" />
+          <p className="text-[1.75rem]">There are no orders</p>
+        </div>
+      )}
       <div>
         {data.map((item, index) => {
           return (
@@ -37,7 +43,10 @@ const Order = () => {
                   <div className="gird gap-1">
                     {item?.productDetails.map((product, index) => {
                       return (
-                        <div key={index} className="flex gap-3 bg-slate-100">
+                        <div
+                          key={index}
+                          className="flex gap-3 bg-slate-100 pt-2"
+                        >
                           <img
                             src={product.image[0]}
                             className="w-28 h-28 bg-slate-200 object-scale-down p-2"
