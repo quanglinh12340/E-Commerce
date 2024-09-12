@@ -20,6 +20,9 @@ const paymentController = async (req, res) => {
                 }
             ],
             customer_email: user.email,
+            metadata: {
+                userId: req.userId
+            },
             line_items: cartItems.map((item, index) => {
                 return {
                     price_data: {
@@ -31,7 +34,7 @@ const paymentController = async (req, res) => {
                                 productId: item.productId._id
                             },
                         },
-                        unit_amount: item.productId.sellingPrice
+                        unit_amount: item.productId.sellingPrice * 100
                     },
                     adjustable_quantity: {
                         enabled: true,
