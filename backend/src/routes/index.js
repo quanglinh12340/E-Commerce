@@ -26,6 +26,7 @@ import filterProductController from "../controllers/products/filterProduct.contr
 import paymentController from "../controllers/order/payment.controller.js";
 import webhook from "../controllers/order/webhook.js";
 import orderController from "../controllers/order/order.controller.js";
+import allOrderProductController from "../controllers/order/allOrderProduct.controller.js";
 
 const RootRouter = Router()
 
@@ -61,5 +62,6 @@ RootRouter.post('/delete-cart-product', authToken, deleteAddToCartProductControl
 RootRouter.post('/checkout', authToken, paymentController)
 RootRouter.post('/webhook', webhook)
 RootRouter.get('/order-list', authToken, orderController)
+RootRouter.get('/all-order', authToken, allOrderProductController)
 
 export { RootRouter }
