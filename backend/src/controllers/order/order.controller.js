@@ -5,7 +5,7 @@ async function orderController(req, res) {
 
         const currUserId = req.userId
 
-        const orderList = await OrderModel.find({ userId: currUserId })
+        const orderList = await OrderModel.find({ userId: currUserId }).sort({ createAt: -1 })
 
         res.json({
             message: "Order list",
