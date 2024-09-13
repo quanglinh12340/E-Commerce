@@ -15,6 +15,9 @@ import Success from "@/pages/Success";
 import Cancel from "@/pages/Cancel";
 import Order from "@/pages/Order";
 import AllOrder from "@/pages/AllOrder";
+import Contact from "@/pages/Contact";
+import About from "@/pages/About";
+import Blog from "@/pages/Blog";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,18 @@ const router = createBrowserRouter([
       {
         path: "sign-up",
         element: <SignUp />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
       {
         path: "product-category",

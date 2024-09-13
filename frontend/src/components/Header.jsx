@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -11,9 +11,32 @@ import { toast } from "react-toastify";
 import { setUserDetails } from "@/store/userSlice";
 import ROLE from "@/common/role";
 import Context from "@/context";
+import "@/assets/css/Header.css";
 
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    switch (path) {
+      case "/":
+        setActiveLink("home");
+        break;
+      case "/about":
+        setActiveLink("about");
+        break;
+      case "/contact":
+        setActiveLink("contact");
+        break;
+      case "/sign-up":
+        setActiveLink("sign-up");
+        break;
+      default:
+        setActiveLink("");
+        break;
+    }
+  }, [window.location.pathname]);
 
   const user = useSelector((state) => state?.user?.user); //Lấy thông tin người dùng từ Redux Store
   const dispatch = useDispatch();
@@ -62,7 +85,63 @@ const Header = () => {
             <img className="w-24 h-24" src={logo} alt="" />
           </Link>{" "}
         </div>
-        <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2">
+        <div id="header">
+          <div>
+            <ul id="navbar">
+              <li>
+                <Link
+                  to={"/"}
+                  className={activeLink === "home" ? "active" : ""}
+                  onClick={() => setActiveLink("home")}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/contact"}
+                  className={activeLink === "contact" ? "active" : ""}
+                  onClick={() => setActiveLink("contact")}
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/about"}
+                  className={activeLink === "about" ? "active" : ""}
+                  onClick={() => setActiveLink("about")}
+                >
+                  About
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to={"/blog"}
+                  className={activeLink === "blog" ? "active" : ""}
+                  onClick={() => setActiveLink("blog")}
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="search">
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search product here..."
+              onChange={handleSearch}
+              value={search}
+            />
+            <div className="search-icon">
+              <GrSearch />
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2">
           <input
             className="w-full outline-none "
             type="text"
@@ -73,7 +152,7 @@ const Header = () => {
           <div className="text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white">
             <GrSearch />
           </div>
-        </div>
+        </div> */}
         <div className="flex items-center gap-7">
           <div className="relative flex justify-center">
             {user?._id && (
