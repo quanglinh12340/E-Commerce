@@ -1,0 +1,83 @@
+.contact-banner {
+  background-image: url(@/assets/banner/contact.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 14px;
+}
+.contact-banner h2,
+.contact-banner p {
+  color: #fff;
+}
+.contact-banner h2 {
+  font-size: 60px;
+  line-height: 54px;
+  margin-bottom: 20px;
+}
+.contact-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+.contact-container .icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-container .icon svg {
+  font-size: 35px;
+}
+.contact-container p {
+  margin: 20px 0;
+}
+.contact-container .left {
+  box-shadow: -3px -3px 8px rgba(188, 181, 181, 0.5),
+    5px 5px 5px rgba(188, 181, 181, 0.15);
+  padding: 60px;
+  width: 30%;
+  height: 450px;
+}
+.contact-container .left-call {
+  border-bottom: 1px solid #333;
+}
+.contact-container .right {
+  box-shadow: -3px -3px 8px rgba(188, 181, 181, 0.5),
+    5px 5px 5px rgba(188, 181, 181, 0.15);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+.contact-container .right input {
+  outline: none;
+}
+.contact-container .right .right-info {
+  margin-bottom: 50px;
+}
+.contact-container .right .right-info input {
+  padding: 20px;
+  margin-right: 15px;
+}
+.contact-container .right .right-message input {
+  padding-top: 10px;
+  padding-right: 570px;
+  padding-bottom: 200px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.contact-container .right .right-message input::placeholder {
+  text-align: left;
+}
+.contact-container .right .right-button {
+  margin-top: 50px;
+}
+.contact-container .right .right-button button {
+  padding: 20px 30px;
+  background-color: rgb(219 68 68);
+  color: #fff;
+}
