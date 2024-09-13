@@ -42,7 +42,10 @@ const HorizontalCardProduct = ({ category, heading }) => {
                     <h5>{product?.productName}</h5>
                     <span>{product?.category}</span>
                     <div className="star">{renderStars()}</div>
-                    <h4>{displayINRCurrency(product?.price)}</h4>
+                    <p className="text-slate-400 line-through">
+                      {displayINRCurrency(product?.price)}
+                    </p>
+                    <h4>{displayINRCurrency(product?.sellingPrice)}</h4>
                   </div>
                   <button
                     className="cart"
