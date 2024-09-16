@@ -58,7 +58,7 @@ const App = () => {
         <Header />
         <main className="min-h-[calc(100vh-120px)]  pt-16">
           <Outlet />
-        </main>{" "}
+        </main>
         <Footer />
       </Context.Provider>
     </>

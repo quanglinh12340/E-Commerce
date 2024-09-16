@@ -1,6 +1,5 @@
 #newsletter {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-image: url(@/assets/banner/b14.png);

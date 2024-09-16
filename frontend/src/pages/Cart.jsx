@@ -128,7 +128,7 @@ const Cart = () => {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container-cart ">
       {data.length === 0 ? (
         <div className=" text-center text-lg mt-16 ">
           <div>

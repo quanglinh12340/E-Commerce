@@ -31,7 +31,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
   return (
     <>
       <h2 className="text-2xl font-semibold py-4 ml-10 ">{heading}</h2>
-      <div className="flex justify-between ml-10 ">
+      <div className="horizontal-card-product flex justify-between ml-10 ">
         {data.slice(0, 4).map((product, index) => {
           return (
             <Link to={"product/" + product?._id} key={index} id="product1">

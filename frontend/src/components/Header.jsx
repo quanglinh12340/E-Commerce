@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
 import logo from "@/assets/logo.png";
@@ -16,6 +16,7 @@ import "@/assets/css/Header.css";
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Hiển thị menu mobile
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -79,20 +80,29 @@ const Header = () => {
 
   return (
     <header className="h-16 shadow-md bg-white fixed w-full z-40">
-      <div className="container h-full mx-auto flex items-center px-10 justify-between">
+      <div className="h-full mx-auto flex items-center px-10 justify-between">
         <div className="">
           <Link to={"/"}>
             <img className="w-24 h-24" src={logo} alt="" />
           </Link>{" "}
         </div>
-        <div id="header">
+        <div id="header" className={mobileMenuOpen ? "mobile-menu-open" : ""}>
+          <div
+            className="mobile-menu-icon"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
           <div>
             <ul id="navbar">
               <li>
                 <Link
                   to={"/"}
                   className={activeLink === "home" ? "active" : ""}
-                  onClick={() => setActiveLink("home")}
+                  onClick={() => {
+                    setActiveLink("home");
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   Home
                 </Link>
@@ -101,7 +111,10 @@ const Header = () => {
                 <Link
                   to={"/contact"}
                   className={activeLink === "contact" ? "active" : ""}
-                  onClick={() => setActiveLink("contact")}
+                  onClick={() => {
+                    setActiveLink("home");
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   Contact
                 </Link>
@@ -110,7 +123,10 @@ const Header = () => {
                 <Link
                   to={"/about"}
                   className={activeLink === "about" ? "active" : ""}
-                  onClick={() => setActiveLink("about")}
+                  onClick={() => {
+                    setActiveLink("home");
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   About
                 </Link>
@@ -120,7 +136,10 @@ const Header = () => {
                 <Link
                   to={"/blog"}
                   className={activeLink === "blog" ? "active" : ""}
-                  onClick={() => setActiveLink("blog")}
+                  onClick={() => {
+                    setActiveLink("home");
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   Blog
                 </Link>
@@ -141,18 +160,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2">
-          <input
-            className="w-full outline-none "
-            type="text"
-            placeholder="Search product here...."
-            onChange={handleSearch}
-            value={search}
-          />
-          <div className="text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white">
-            <GrSearch />
-          </div>
-        </div> */}
         <div className="flex items-center gap-7">
           <div className="relative flex justify-center">
             {user?._id && (
